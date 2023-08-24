@@ -52,7 +52,7 @@ export class BlogService {
   // GET BLOG BY ID
   async getBlogById(blogId: Types.ObjectId) {
     try {
-      const blog = await this.blogModel.findById(blogId);
+      const blog = await this.blogModel.findById(blogId).populate('author', '-password');
 
       if (!blog) {
         throw new BadRequestException('Not able to find blog');

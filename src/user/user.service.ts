@@ -55,7 +55,7 @@ export class UserService {
   }
 
   async getUser() {
-    const users = await this.userModel.find();
+    const users = await this.userModel.find().select('-password');
     return users;
   }
 

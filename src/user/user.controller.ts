@@ -19,7 +19,7 @@ export class UserController {
   }
 
   @Get('/all')
-  // @UseGuards(AuthGuard)
+  @UseGuards(AuthGuard)
   async getAll() {
     return this.userService.getUser();
   }
